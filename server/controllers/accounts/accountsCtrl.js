@@ -1,5 +1,5 @@
 const Account = require("../../model/Account");
-const User = require("../../model/user");
+const User = require("../../model/User.js");
 const { AppErr } = require("../../utils/appErr");
 
 
