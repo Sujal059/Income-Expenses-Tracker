@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { authContext } from "../context/AuthContext/AuthContext";
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
   const { loginUserAction, userAuth } = useContext(authContext);
@@ -22,7 +24,7 @@ const Login = () => {
     //dispatch action
     loginUserAction(formData);
   };
-  console.log(userAuth);
+  //console.log(userAuth);
   return (
     <>
       <section className="py-24 md:py-32 bg-white">
@@ -52,7 +54,7 @@ const Login = () => {
                   name="email"
                   className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lgshadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                   type="email"
-                  placeholder="i-novotek@gmail.com"
+                  placeholder="enter your email"
                 />
               </div>
               <div className="mb-4">
@@ -86,18 +88,12 @@ const Login = () => {
                 className="inline-block py-3 px-7 mb-6 w-full text-base text-green-50 font-medium text-center leading-6 bg-green-500 hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md shadow-sm"
                 type="submit"
               >
-                Sign In
+                Log In
               </button>
               <p className="text-center">
                 <span className="text-xs font-medium">
-                  Don’t have an account? <a href="#">Sign up</a>
+                  Don’t have an account? <Link to="/register">Sign Up</Link>
                 </span>
-                <button
-                  className="inline-block text-xs font-medium text-green-500 hover:text-green-600 hover:underline"
-                  type="submit"
-                >
-                  Sign up
-                </button>
               </p>
             </form>
           </div>

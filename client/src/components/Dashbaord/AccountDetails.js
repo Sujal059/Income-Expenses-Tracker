@@ -10,7 +10,7 @@ export default function AccountDetails() {
   useEffect(() => {
     getAccountDetailsAction(accountID);
   }, [accountID]);
-  console.log(account);
+  //console.log(account);
   //Calculate total income
   const totalIncome = account?.transactions?.reduce((acc, transaction) => {
     if (transaction?.transactionType === "Income") {
@@ -56,8 +56,7 @@ export default function AccountDetails() {
                   {account?.name}
                 </h2>
                 <p className="mt-3 text-xl text-gray-500 sm:mt-4">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Repellendus repellat laudantium.
+                 Total Income Expenses tracking Summary
                 </p>
               </div>
             </div>

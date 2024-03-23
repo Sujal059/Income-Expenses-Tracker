@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { authContext } from "../context/AuthContext/AuthContext";
+import img from "../../assets/img.jpg"
+
 
 const Header = () => {
+  const { token } = useContext(authContext);
+
   return (
     <>
       <section className="relative bg-white overflow-hidden">
@@ -41,29 +46,40 @@ const Header = () => {
                   income and expenses in one place.
                 </p>
                 <div className="flex flex-wrap">
-                  <div className="w-full md:w-auto py-1 md:py-0 md:mr-4">
-                    <a
-                      className="inline-block py-5 px-7 w-full text-base md:text-lg leading-4 text-green-50 font-medium text-center bg-green-500 hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 border border-green-500 rounded-md shadow-sm"
-                      href="#"
-                    >
-                      Request a Demo
-                    </a>
-                  </div>
-                  <div className="w-full md:w-auto py-1 md:py-0">
-                    <a
-                      className="inline-block py-5 px-7 w-full text-base md:text-lg leading-4 text-coolGray-800 font-medium text-center bg-white hover:bg-coolGray-100 focus:ring-2 focus:ring-coolGray-200 focus:ring-opacity-50 border border-coolGray-200 rounded-md shadow-sm"
-                      href="#"
-                    >
-                      Sign Up
-                    </a>
-                  </div>
+                  {token?
+                    <div className="w-full md:w-auto py-1 md:py-0">
+                      <a
+                        className="inline-block py-5 px-7 w-full text-base md:text-lg leading-4 text-green-50  font-medium text-center bg-green-500  hover:bg-coolGray-100 focus:ring-2 focus:ring-coolGray-200 focus:ring-opacity-50 border border-coolGray-200 rounded-md shadow-sm"
+                        href="/dashboard/accounts/create"
+                      >
+                        Add Account
+                      </a>
+                    </div>
+                  :<>
+                    <div className="w-full md:w-auto py-1 md:py-0 md:mr-4">
+                      <a
+                        className="inline-block py-5 px-7 w-full text-base md:text-lg leading-4 text-green-50 font-medium text-center bg-green-500 hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 border border-green-500 rounded-md shadow-sm"
+                        href="/login"
+                      >
+                        Sign In
+                      </a>
+                    </div>
+                    <div className="w-full md:w-auto py-1 md:py-0">
+                      <a
+                        className="inline-block py-5 px-7 w-full text-base md:text-lg leading-4 text-green-50  font-medium text-center bg-green-500  hover:bg-coolGray-100 focus:ring-2 focus:ring-coolGray-200 focus:ring-opacity-50 border border-coolGray-200 rounded-md shadow-sm"
+                        href="/register"
+                      >
+                        Sign Up
+                      </a>
+                    </div>
+                  </>}
                 </div>
               </div>
               <div className="w-full md:w-1/2 px-4">
                 <div className="relative mx-auto md:mr-0 max-w-max">
                   <img
                     className="relative rounded-7xl"
-                    src="https://cdn.pixabay.com/photo/2015/01/28/22/20/bookkeeping-615384_1280.jpg"
+                    src={img}
                     alt="landing"
                   />
                 </div>

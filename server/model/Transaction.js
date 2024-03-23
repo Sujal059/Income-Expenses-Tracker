@@ -20,7 +20,7 @@ const transactionSchema = new mongoose.Schema({
         type: String,
         enum: [
             "Food",
-            "Transaction",
+            "Transportation",
             "Entertainment",
             "Shopping",
             "Utilities",
@@ -30,8 +30,7 @@ const transactionSchema = new mongoose.Schema({
             "Personal",
             "Groceries",
             "Bills",
-            "Building",
-            "Uncategorized"
+            "other"
         ],
         required: true,
     },
